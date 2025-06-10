@@ -1,1 +1,224 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply box-border
+  }
+}
+
+@layer components {
+  /* General */
+  .btn {
+    @apply flex gap-2 justify-center items-center h-[48px] rounded-lg medium-bold
+  }
+  /* Removed box border and moved it to body */
+
+  .btn-primary {
+    @apply btn bg-primary
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-dark text-white
+  }
+
+  .btn-primary:disabled,
+  .btn-danger:disabled {
+    @apply bg-gray text-dark hover:bg-gray
+  }
+
+  .btn-secondary {
+    @apply btn bg-white border-2 border-primary hover:bg-gray-light focus:outline-primary
+  }
+
+  .btn-danger {
+    @apply btn bg-support-red text-white hover:bg-support-red-dark
+  }
+
+  .btn-cancel {
+    @apply btn text-gray-dark hover:bg-gray-light
+  }
+
+  .card {
+    @apply shadow-card rounded-xl
+  }
+
+  .small-card {
+    @apply shadow-card rounded-lg
+  }
+
+  /* Forms */
+
+  .form-input-container {
+    @apply flex flex-col gap-2
+  }
+
+  .form-input-label {
+    @apply medium-bold
+  }
+
+  .form-input {
+    @apply flex gap-3 items-center p-3 w-full h-12 medium-regular rounded-lg border border-gray-dark placeholder-placeholder
+  }
+
+  .form-input:focus-within {
+    @apply border-transparent outline outline-2 outline-primary -outline-offset-2
+  }
+
+  .form-input:disabled {
+    @apply text-gray-dark bg-gray-light
+  }
+
+  .form-radio-item {
+    @apply medium-regular flex items-center gap-3
+  }
+
+  .form-error {
+    @apply small-regular text-support-red
+  }
+
+  .form-side-btn {
+    @apply small-card flex justify-center items-center size-14 bg-white text-gray-dark
+  }
+
+  .form-side-btn:hover {
+    @apply cursor-pointer bg-gray text-white
+  }
+
+  #phone-input div {
+    font-family: inherit;
+  }
+
+  /* Tables */
+
+  .table {
+    @apply border-collapse table-fixed
+  }
+
+  .table-row {
+    @apply border-b border-b-stroke
+  }
+
+  .table-header-cell {
+    @apply medium-bold py-2 text-gray-dark
+  }
+
+  .table-content-cell {
+    @apply medium-regular text-center
+  }
+
+  .notification {
+    @apply flex gap-4 items-center min-h-[80px] w-full px-6 py-3.5 text-left rounded-lg border-2 box-border
+  }
+
+  .notification-success {
+    @apply notification bg-primary-light border-primary-dark
+  }
+
+  .notification-warning {
+    @apply notification bg-support-yellow-light border-support-yellow
+  }
+
+  .notification-error {
+    @apply notification bg-support-red-light border-support-red
+  }
+
+  .info {
+    @apply notification bg-support-blue-light border-support-blue
+  }
+}
+
+@layer utilities {
+  .logo-large {
+    @apply text-[2.5rem] font-normal leading-[3.5rem] tracking-[0.15em] uppercase
+  }
+
+  .logo-medium {
+    @apply text-2xl font-normal leading-8 tracking-[0.15em] uppercase
+  }
+
+  .logo-small {
+    @apply text-lg font-normal leading-8 tracking-[0.15em] uppercase
+  }
+
+  .title {
+    @apply text-[2rem] font-semibold leading-[2.5rem]
+  }
+
+  .heading {
+    @apply text-2xl font-normal leading-8
+  }
+
+  .large-bold {
+    @apply text-xl font-semibold leading-8
+  }
+
+  .large-regular {
+    @apply text-xl font-normal leading-8
+  }
+
+  .large-light {
+    @apply text-xl font-light leading-8
+  }
+
+  .medium-bold {
+    @apply text-base font-semibold leading-6
+  }
+
+  .medium-regular {
+    @apply text-base font-normal leading-6
+  }
+
+  .medium-light {
+    @apply text-base font-light leading-6
+  }
+
+  .small-bold {
+    @apply text-xs font-semibold leading-4
+  }
+
+  .small-regular {
+    @apply text-xs font-normal leading-4
+  }
+
+  .small-light {
+    @apply text-xs font-light leading-4
+  }
+
+  .extra-small-bold {
+    @apply text-[10px] font-semibold leading-4
+  }
+
+  .extra-small-regular {
+    @apply text-[10px] font-normal leading-4
+  }
+
+  .extra-small-light {
+    @apply text-[10px] font-light leading-4
+  }
+
+  .icon-regular {
+    @apply text-[24px] leading-6
+  }
+
+  .icon-small {
+    @apply block text-[16px] leading-4
+  }
+
+  .icon-xs {
+    @apply block text-[12px] leading-3
+  }
+
+  .link {
+    @apply text-support-blue underline
+  }
+
+  .link:hover {
+    @apply cursor-pointer text-support-blue-dark
+  }
+
+  .dark-hover:hover {
+    @apply hover:bg-black hover:bg-opacity-10 hover:cursor-pointer
+  }
+}
