@@ -4,6 +4,8 @@ import LoginPage from '../pages/auth/LoginPage'
 import SignupPage from '../pages/auth/SignupPage'
 import AuthLayout from '../layouts/AuthLayout'
 import PrivateRoute from './PrivateRoute'
+import HomePage from '../pages/HomePage'
+import MainLayout from '../components/layout/MainLayout'
 
 export const router = createBrowserRouter([
   {
@@ -27,8 +29,13 @@ export const router = createBrowserRouter([
     element: <PrivateRoute />,
     children: [
       {
-        index: true,
-        element: <div>Welcome to the Chat App! (Protected)</div>,
+        element: <MainLayout />,
+        children: [
+          {
+            index: true,
+            element: <HomePage />,
+          },
+        ],
       },
     ],
   },

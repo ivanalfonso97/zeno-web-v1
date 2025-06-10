@@ -13,7 +13,12 @@ export default {
           DEFAULT: '#4169E1',
           dark: '#2E4CA7',
         },
-        dark: '#0D152D',
+        dark: {
+          DEFAULT: '#0D152D',
+          // frame: '#090B10',
+          frame: '#151722',
+          base: '#1F2335'
+        },
         gray: {
           light: '#EEEEEE',
           DEFAULT: '#BDBDBD',
@@ -44,7 +49,8 @@ export default {
       boxShadow: {
         card: '0 0 32px 0 rgba(0, 0, 0, 0.15)',
         small: '0 0 8px 0 rgba(0, 0, 0, 0.05)'
-      }
+      },
+      
     },
   },
   plugins: []
