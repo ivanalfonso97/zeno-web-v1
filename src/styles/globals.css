@@ -1,26 +1,28 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply box-border
+    @apply box-border;
+    font-family: 'Inter', sans-serif;
   }
 }
 
 @layer components {
   /* General */
   .btn {
-    @apply flex gap-2 justify-center items-center h-[48px] rounded-lg medium-bold
+    @apply flex gap-2 justify-center items-center h-[48px] rounded-full medium-bold
   }
   /* Removed box border and moved it to body */
 
   .btn-primary {
-    @apply btn bg-primary
+    @apply btn bg-primary text-white
   }
 
   .btn-primary:hover {
-    @apply bg-primary-dark text-white
+    @apply bg-primary-dark
   }
 
   .btn-primary:disabled,
@@ -59,7 +61,7 @@
   }
 
   .form-input {
-    @apply flex gap-3 items-center p-3 w-full h-12 medium-regular rounded-lg border border-gray-dark placeholder-placeholder
+    @apply flex gap-3 items-center p-3 px-6 w-full h-12 medium-regular rounded-full border border-gray-dark placeholder-placeholder
   }
 
   .form-input:focus-within {
@@ -130,24 +132,30 @@
 }
 
 @layer utilities {
+  /* Typography */
   .logo-large {
-    @apply text-[2.5rem] font-normal leading-[3.5rem] tracking-[0.15em] uppercase
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-[2.5rem] font-normal leading-[3.5rem] tracking-[0.15em] uppercase;
   }
 
   .logo-medium {
-    @apply text-2xl font-normal leading-8 tracking-[0.15em] uppercase
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-2xl font-normal leading-8 tracking-[0.15em] uppercase;
   }
 
   .logo-small {
-    @apply text-lg font-normal leading-8 tracking-[0.15em] uppercase
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-lg font-normal leading-8 tracking-[0.15em] uppercase;
   }
 
   .title {
-    @apply text-[2rem] font-semibold leading-[2.5rem]
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-[2rem] font-semibold leading-[2.5rem];
   }
 
   .heading {
-    @apply text-2xl font-normal leading-8
+    font-family: 'Space Grotesk', sans-serif;
+    @apply text-2xl font-normal leading-8;
   }
 
   .large-bold {
