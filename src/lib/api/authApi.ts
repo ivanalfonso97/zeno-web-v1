@@ -2,11 +2,11 @@ import axios from 'axios'
 import { type SignupPayload } from '../../types/auth'
 import { type LoginResponseType, type LoginSchemaType } from '../../types/auth'
 
-const API_BASE_URL = 'http://localhost:8000'
+const BASE_URL = import.meta.env.VITE_ZENO_SERVER_BASE_URL
 
 export const authSignup = async (data: SignupPayload): Promise<void> => {
   try {
-    const response = await axios.post<any>(`${API_BASE_URL}/auth/signup`, data, {
+    const response = await axios.post<any>(`${BASE_URL}/auth/signup`, data, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,7 +25,7 @@ export const authSignup = async (data: SignupPayload): Promise<void> => {
 
 export const authLogin = async (data: LoginSchemaType): Promise<LoginResponseType> => {
   try {
-    const response = await axios.post<LoginResponseType>(`${API_BASE_URL}/auth/login`, data, {
+    const response = await axios.post<LoginResponseType>(`${BASE_URL}/auth/login`, data, {
       headers: {
         'Content-Type': 'application/json',
       },

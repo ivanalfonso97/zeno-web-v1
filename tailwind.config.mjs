@@ -16,7 +16,8 @@ export default {
         dark: {
           DEFAULT: '#0D152D',
           // frame: '#090B10',
-          frame: '#151722',
+          surface: '#151722',
+          card: '#090B10',
           base: '#1F2335'
         },
         gray: {

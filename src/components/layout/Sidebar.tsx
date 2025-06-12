@@ -11,11 +11,11 @@ const Sidebar: React.FC = () => {
   const navItems = [
     { path: '/', label: 'Chat' },
     { path: '/integrations', label: 'Integrations' },
-    { path: '/settings', label: 'Settings' },
+    // { path: '/settings', label: 'Settings' },
   ]
 
   return (
-    <div className="w-72 h-screen bg-dark-frame p-8">
+    <div className="w-72 h-screen bg-dark-surface p-8">
       <h1 className="w-full text-center logo-medium text-white mb-8">Zeno AI</h1>
       <nav>
         <ul className="flex flex-col gap-2">
@@ -23,7 +23,7 @@ const Sidebar: React.FC = () => {
             <li key={item.path}>
               <Link
                 to={item.path}
-                className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
+                className={`medium-regular flex items-center px-4 py-2 rounded-lg transition-colors ${
                   isActive(item.path)
                     ? 'bg-white bg-opacity-5 text-white'
                     : 'text-gray hover:text-white hover:bg-white hover:bg-opacity-5'

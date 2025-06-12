@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
       <h1 className="title font-bold mb-4">Welcome to Zeno AI Chat!</h1>
       <p className="text-lg">This is your new home page. Start chatting!</p>
     </div>
-  );
-};
+  )
+}
 
 export default HomePage; 

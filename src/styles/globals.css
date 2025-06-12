@@ -158,6 +158,10 @@
     @apply text-2xl font-normal leading-8;
   }
 
+  .extra-large-bold {
+    @apply text-[2rem] font-semibold leading-8
+  }
+
   .large-bold {
     @apply text-xl font-semibold leading-8
   }
@@ -204,6 +208,10 @@
 
   .extra-small-light {
     @apply text-[10px] font-light leading-4
+  }
+
+  .icon-large {
+    @apply text-[32px] leading-8
   }
 
   .icon-regular {
