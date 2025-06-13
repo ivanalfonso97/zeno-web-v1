@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { authSignup } from '../../lib/api/authApi'
 import TextInput from '../../components/elements/input/TextInput'
-import { signupSchema, type SignupSchemaType } from "../../types/auth"
+import { signupSchema, type SignupSchemaType } from "../../lib/types/auth"
 import PasswordInput from '../../components/elements/input/PasswordInput'
 
 export default function SignupPage() {

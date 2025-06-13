@@ -1,5 +1,5 @@
-import { type SignupPayload } from '../../types/auth'
-import { type LoginResponseType, type LoginSchemaType } from '../../types/auth'
+import { type SignupPayload } from '../types/auth'
+import { type LoginResponseType, type LoginSchemaType } from '../types/auth'
 
 const BASE_URL = import.meta.env.VITE_ZENO_SERVER_BASE_URL
 

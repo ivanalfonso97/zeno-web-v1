@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { logout } from '../../features/auth/authService'
 
 const Sidebar: React.FC = () => {
   const location = useLocation()
+  const navigate = useNavigate()
 
   const isActive = (path: string) => {
     return location.pathname === path
@@ -14,10 +16,14 @@ const Sidebar: React.FC = () => {
     // { path: '/settings', label: 'Settings' },
   ]
 
+  const handleLogout = () => {
+    logout(navigate)
+  }
+
   return (
-    <div className="w-72 h-screen bg-dark-surface p-8">
+    <div className="w-72 h-screen bg-dark-surface p-8 flex flex-col">
       <h1 className="w-full text-center logo-medium text-white mb-8">Zeno AI</h1>
-      <nav>
+      <nav className="flex-grow">
         <ul className="flex flex-col gap-2">
           {navItems.map((item) => (
             <li key={item.path}>
@@ -35,6 +41,14 @@ const Sidebar: React.FC = () => {
           ))}
         </ul>
       </nav>
+      <div className="mt-auto">
+        <button
+          onClick={handleLogout}
+          className="btn btn-danger w-full bg-white bg-opacity-5 hover:bg-opacity-100"
+        >
+          Logout
+        </button>
+      </div>
     </div>
   )
 }

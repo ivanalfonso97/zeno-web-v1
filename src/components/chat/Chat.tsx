@@ -40,14 +40,12 @@ function Chat() {
     try {
       const chatMessages = messages.map(msg => ({ role: msg.role, content: msg.content }))
       const reader = await sendMessage([...chatMessages, { role: 'user', content: userMessage.content }])
-      console.log("IC01", reader)
       const decoder = new TextDecoder('utf-8')
       let result
       let accumulatedContent = ''
 
       while (true) {
         result = await reader.read()
-        console.log("IC02", result)
         if (result.done) break
 
         const chunk = decoder.decode(result.value, { stream: true })

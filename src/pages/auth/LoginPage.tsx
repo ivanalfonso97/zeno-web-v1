@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import TextInput from '../../components/elements/input/TextInput'
 import PasswordInput from '../../components/elements/input/PasswordInput'
-import { loginSchema, type LoginSchemaType } from '../../types/auth'
+import { loginSchema, type LoginSchemaType } from '../../lib/types/auth'
 import { authLogin } from '../../lib/api/authApi'
 
 export default function LoginPage() {
@@ -19,7 +19,6 @@ export default function LoginPage() {
 
   const onSubmit = async (data: LoginSchemaType) => {
     try {
-      console.log('Login data:', data)
       const payload = {
         email: data.email,
         password: data.password
