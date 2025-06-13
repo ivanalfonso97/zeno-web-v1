@@ -39,7 +39,6 @@ export const authLogin = async (data: LoginSchemaType): Promise<LoginResponseTyp
     }
 
     const responseData: LoginResponseType = await response.json()
-    console.log('Login API Response:', responseData)
 
     return responseData
   } catch (error) {

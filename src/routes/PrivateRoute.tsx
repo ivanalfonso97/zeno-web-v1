@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 import { logout } from '../features/auth/authService'
-import { setOnAuthErrorCallback, AuthError } from '../lib/api/fetchWithAuth'
+import { setOnAuthErrorCallback } from '../lib/api/fetchWithAuth'
 
 interface PrivateRouteProps {
   // You can add props here if needed, e.g., roles

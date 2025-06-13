@@ -26,7 +26,6 @@ export default function SignupPage() {
         last_name: data.lastName,
       }
       await authSignup(payload);
-      console.log('Signup successful!')
       navigate('/login')
     } catch (error) {
       console.error('Signup failed:', error);

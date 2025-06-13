@@ -61,7 +61,7 @@
   }
 
   .form-input {
-    @apply flex gap-3 items-center p-3 px-6 w-full h-12 medium-regular rounded-full border border-gray-dark placeholder-placeholder
+    @apply flex gap-3 items-center p-3 px-6 w-full h-12 medium-regular rounded-full border border-gray-dark placeholder-placeholder 
   }
 
   .form-input:focus-within {
