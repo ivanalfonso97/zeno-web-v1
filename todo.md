@@ -7,3 +7,4 @@ P1
 
 P2
 - Get user function in login
+- User feedback for auth issues

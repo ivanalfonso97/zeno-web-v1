@@ -21,7 +21,15 @@ export const signupSchema = z.object({
   path: ["confirmPassword"],
 })
 
+export const signupResponseSchema = z.object({
+  access_token: z.string(),
+  user: z.object({
+    id: z.string(),
+  }),
+})
+
 export type SignupSchemaType = z.infer<typeof signupSchema>
+export type SignupResponseType = z.infer<typeof signupResponseSchema>
 
 // Login
 

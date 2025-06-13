@@ -25,10 +25,13 @@ export default function SignupPage() {
         first_name: data.firstName,
         last_name: data.lastName,
       }
-      await authSignup(payload);
-      navigate('/login')
+      const { access_token, user } = await authSignup(payload)
+      sessionStorage.setItem('jwt-access', access_token)
+      sessionStorage.setItem('user', user.id)
+
+      navigate('/')
     } catch (error) {
-      console.error('Signup failed:', error);
+      console.error('Signup failed:', error)
     }
   }
 
