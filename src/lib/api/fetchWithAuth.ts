@@ -1,10 +1,8 @@
-import axios from 'axios'
-
 const getAuthToken = () => {
   return sessionStorage.getItem('jwt-access')
 }
 
-export const fetchWithAuth = async (endpoint: string, options: any = {}) => {
+export const fetchWithAuth = async (endpoint: string, options: RequestInit = {}) => {
   const token = getAuthToken()
   
   if (!token) {
@@ -12,13 +10,14 @@ export const fetchWithAuth = async (endpoint: string, options: any = {}) => {
     throw new Error("No authentication token found")
   }
 
-  return axios({
-    url: endpoint,
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`,
+    ...options.headers,
+  }
+
+  return fetch(endpoint, {
     ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-      ...options.headers,
-    },
+    headers,
   })
 } 

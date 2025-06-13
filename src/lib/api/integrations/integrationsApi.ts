@@ -7,9 +7,11 @@ export async function getIntegrationStatus() {
     method: 'GET'
   })
 
-  if (response.status !== 200) {
-    throw new Error('Failed to fetch integration status')
+  if (!response.ok) {
+    throw new Error(`Failed to fetch integration status: ${response.statusText || response.status}`)
   }
 
-  return response.data
+  const data = response.json()
+
+  return data
 }

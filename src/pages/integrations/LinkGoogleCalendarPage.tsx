@@ -26,14 +26,21 @@ function LinkGoogleCalendarPage() {
           throw new Error('Missing required tokens')
         }
 
-        await fetchWithAuth(`${BASE_URL}/calendar/save-google-tokens`, {
+        const response = await fetchWithAuth(`${BASE_URL}/calendar/save-google-tokens`, {
           method: 'POST',
-          data: {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
             access_token: accessToken,
             refresh_token: refreshToken,
             expiry
-          }
+          })
         })
+
+        if (!response.ok) {
+          throw new Error(`Failed to save Google Calendar tokens: ${response.statusText || response.status}`)
+        }
 
         setIsSuccess(true)
       } catch (err) {
