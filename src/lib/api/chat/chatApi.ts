@@ -1,6 +1,6 @@
 import { fetchWithAuth } from '../fetchWithAuth'
 
-const BASE_URL = import.meta.env.VITE_ZENO_SERVER_BASE_URL
+const BASE_URL = import.meta.env.VITE_ZENO_SERVER_V1_BASE_URL
 
 export interface ChatMessage {
   role: 'user' | 'assistant'
@@ -8,7 +8,7 @@ export interface ChatMessage {
 }
 
 export async function sendMessage(messages: ChatMessage[]): Promise<ReadableStreamDefaultReader<Uint8Array>> {
-  const response = await fetchWithAuth(`${BASE_URL}/llm/chat`, {
+  const response = await fetchWithAuth(`${BASE_URL}/chat`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
