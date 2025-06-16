@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { fetchWithAuth } from '../../lib/api/fetchWithAuth'
 
-const BASE_URL = import.meta.env.VITE_ZENO_SERVER_BASE_URL
+const ERROR_MESSAGES: Record<string, string> = {
+  'no_user_id_in_state': 'User session expired. Please try again.',
+  'no_code': 'Authorization code is missing. Please try again.'
+}
 
 function LinkGoogleCalendarPage() {
   const [searchParams] = useSearchParams()
@@ -11,45 +13,24 @@ function LinkGoogleCalendarPage() {
   const [isSuccess, setIsSuccess] = useState(false)
 
   useEffect(() => {
-    const saveTokens = async () => {
-      try {
-        const status = searchParams.get('status')
-        if (status !== 'success') {
-          throw new Error('Google Calendar authorization failed')
-        }
+    const status = searchParams.get('status')
+    const errorMessage = searchParams.get('message')
+    const errorType = searchParams.get('error')
 
-        const accessToken = searchParams.get('access_token')
-        const refreshToken = searchParams.get('refresh_token')
-        const expiry = searchParams.get('expiry')
-
-        if (!accessToken || !refreshToken || !expiry) {
-          throw new Error('Missing required tokens')
-        }
-
-        const response = await fetchWithAuth(`${BASE_URL}/calendar/save-google-tokens`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            access_token: accessToken,
-            refresh_token: refreshToken,
-            expiry
-          })
-        })
-
-        if (!response.ok) {
-          throw new Error(`Failed to save Google Calendar tokens: ${response.statusText || response.status}`)
-        }
-
-        setIsSuccess(true)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to save Google Calendar tokens')
-        console.error('Error saving tokens:', err)
-      }
+    if (status === 'success') {
+      setIsSuccess(true)
+      return
     }
 
-    saveTokens()
+    if (errorMessage) {
+      setError(errorMessage)
+      return
+    }
+
+    if (errorType) {
+      setError(ERROR_MESSAGES[errorType] || 'An error occurred while connecting Google Calendar')
+      return
+    }
   }, [searchParams])
 
   if (error) {
@@ -93,7 +74,7 @@ function LinkGoogleCalendarPage() {
     <div className="flex items-center justify-center min-h-screen">
       <div className="text-center">
         <h1 className="heading font-bold text-dark dark:text-white mb-4">Connecting Google Calendar</h1>
-        <p className="text-gray">Please wait while we save your calendar access...</p>
+        <p className="text-gray">Please wait while we connect your calendar...</p>
       </div>
     </div>
   )

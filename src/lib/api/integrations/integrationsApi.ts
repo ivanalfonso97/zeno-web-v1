@@ -1,6 +1,6 @@
 import { fetchWithAuth } from '../fetchWithAuth'
 
-const BASE_URL = import.meta.env.VITE_ZENO_SERVER_BASE_URL
+const BASE_URL = import.meta.env.VITE_ZENO_SERVER_V1_BASE_URL
 
 export async function getIntegrationStatus() {
   const response = await fetchWithAuth(`${BASE_URL}/integrations/status`, {

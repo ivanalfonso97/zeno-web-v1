@@ -13,9 +13,9 @@ function IntegrationsPage() {
         const status = await getIntegrationStatus()
         
         // Safely access nested properties with optional chaining and nullish coalescing
-        const googleCalendarStatus = status?.integrations?.google_calendar ?? {}
+        const googleCalendarStatus = status?.google_calendar ?? {}
         setIsGoogleCalendarConnected(googleCalendarStatus.is_connected ?? false)
-        setGoogleCalendarEmail(googleCalendarStatus.email ?? '')
+        setGoogleCalendarEmail(googleCalendarStatus.linked_google_calendar_email ?? '')
       } catch (error) {
         console.error('Failed to fetch integration status:', error)
         // Set default values on error
