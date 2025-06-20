@@ -85,7 +85,7 @@ function Chat() {
   return (
     <div className="flex flex-col items-center h-full">
       {/* Messages List */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 w-4/5">
+      <div className="flex-1 overflow-y-auto p-6 space-y-4 lg:p-4 plg:w-4/5">
         {messages.map(message => (
           <div
             key={message.id}
@@ -95,7 +95,7 @@ function Chat() {
               className={`max-w-[80%] rounded-2xl p-4 ${
                 message.role === 'user'
                   ? 'bg-white dark:bg-opacity-5 text-white'
-                  : 'text-dark dark:text-white'
+                  : 'pl-0 text-dark dark:text-white'
               }`}
             >
               <p className="medium">{message.content}</p>
@@ -116,7 +116,7 @@ function Chat() {
       </div>
 
       {/* Input Form */}
-      <form onSubmit={handleSubmit} className="flex items-center justify-center p-4 w-4/5">
+      <form onSubmit={handleSubmit} className="flex items-center justify-center p-4 w-full lg:w-4/5">
         <div className="flex flex-grow gap-4">
           <input
             type="text"
@@ -129,9 +129,10 @@ function Chat() {
           <button
             type="submit"
             disabled={!inputValue.trim() || isLoading}
-            className="btn btn-primary px-6"
+            className="btn btn-primary px-3 lg:px-6"
           >
-            Send
+            <i className="bi bi-send icon-regular lg:hidden" />
+            <span className="hidden lg:inline">Send</span>
           </button>
         </div>
       </form>

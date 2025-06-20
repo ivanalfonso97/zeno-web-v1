@@ -211,15 +211,15 @@
   }
 
   .icon-large {
-    @apply text-[32px] leading-8
+    @apply text-[32px] leading-none flex items-center justify-center
   }
 
   .icon-regular {
-    @apply text-[24px] leading-6
+    @apply text-[24px] leading-none flex items-center justify-center
   }
 
   .icon-small {
-    @apply block text-[16px] leading-4
+    @apply text-[16px] leading-none flex items-center justify-center
   }
 
   .icon-xs {

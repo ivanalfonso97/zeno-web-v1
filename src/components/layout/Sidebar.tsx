@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
   }
 
   return (
-    <div className="w-72 h-screen bg-dark-surface p-8 flex flex-col">
+    <div className="hidden w-72 h-screen bg-dark-surface p-8 flex-col lg:flex">
       <h1 className="w-full text-center logo-medium text-white mb-8">Zeno AI</h1>
       <nav className="flex-grow">
         <ul className="flex flex-col gap-2">
