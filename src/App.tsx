@@ -3,7 +3,7 @@ import { router } from './routes'
 import { RouterProvider } from 'react-router-dom'
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+  const [isDarkMode] = useState<boolean>(() => {
     // Initialize from localStorage or default to system preference
     const storedTheme = localStorage.getItem('theme')
     if (storedTheme) {
@@ -23,9 +23,9 @@ function App() {
     }
   }, [isDarkMode])
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(prevMode => !prevMode)
-  }
+  // const toggleDarkMode = () => {
+  //   setIsDarkMode(prevMode => !prevMode)
+  // }
 
   return (
     <div>
